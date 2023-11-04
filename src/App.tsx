@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef } from "react";
+
+import image from "./assets/image.png";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+const pins = [
+  {
+    x: 0,
+    y: 0,
+    width: 100,
+    height: 100,
+    color: 'red',
+  },
+  {
+    x: 100,
+    y: 100,
+    width: 100,
+    height: 100,
+    color: 'blue',
+  },
+];
+
+import "./App.css"
+const ImageScale = ({src}) => {
+  return (
+    <TransformWrapper
+      initialScale={1}
+
+      maxScale={20}
+    >
+      {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+        <React.Fragment>
+          
+          <div className="tools">
+            <button onClick={() => zoomIn()}>Zoom in</button>
+            <button onClick={() => zoomOut()}>Zoom out</button>
+            <button onClick={() => resetTransform()}>Reset</button>
+          </div>
+
+          <TransformComponent>
+            {/* <Pins pins={pins}> */}
+              <img src={src}alt="test" />
+              <></>
+            {/* </Pins> */}
+          </TransformComponent>
+        </React.Fragment>
+      )}
+    </TransformWrapper>
+  );
+};
+
+// function Example() {
+//   return (
+//     <TransformWrapper>
+//       <TransformComponent>
+//         <img src={image} alt="test" />
+//       </TransformComponent>
+//     </TransformWrapper>
+//   );
+// }
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Remage</h1>
+      <ImageScale src={image}/>
+    </div>
+  );
 }
 
 export default App
