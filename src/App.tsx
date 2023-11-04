@@ -1,5 +1,6 @@
 import "./App.css";
 import { Remage } from "./components/remage";
+import { Icon } from "@iconify/react";
 
 import "./App.css";
 
@@ -13,26 +14,32 @@ function App() {
             {
               top: "10%",
               left: "20%",
-              child: (
-                <div
-                  onMouseEnter={() => {
-                    console.log("hello");
-                  }}
-                  style={{ top: "50%" }}
-                >
-                  x
-                </div>
-              ),
+              interactable: (zoom) => {
+                console.log("x", zoom);
+                return (
+                  <div className="pin" style={{ top: "50%" }}>
+                    <Icon icon="ion:pin" />
+                  </div>
+                );
+              },
             },
             {
               top: "20%",
               left: "50%",
-              child: <div style={{ top: "50%" }}>y</div>,
+              interactable: (state) => {
+                return (
+                  <div style={{ top: "50%" }}>
+                    {state.scale == 1 ? "y" : "zoomed in"}
+                  </div>
+                );
+              },
             },
             {
               top: "80%",
               left: "50%",
-              child: <div style={{ top: "50%" }}>z</div>,
+              interactable: () => {
+                return <div style={{ top: "50%" }}>z</div>;
+              },
             },
           ]}
         />
