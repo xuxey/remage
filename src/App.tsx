@@ -13,7 +13,16 @@ function App() {
             {
               top: "10%",
               left: "20%",
-              child: <div style={{ top: "50%" }}>x</div>,
+              child: (
+                <div
+                  onMouseEnter={() => {
+                    console.log("hello");
+                  }}
+                  style={{ top: "50%" }}
+                >
+                  x
+                </div>
+              ),
             },
             {
               top: "20%",

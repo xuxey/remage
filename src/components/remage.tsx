@@ -10,16 +10,15 @@ export const Remage = ({
 }) => {
   return (
     <TransformWrapper initialScale={1} maxScale={20}>
-      {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+      {({ zoomIn, zoomOut, resetTransform }) => (
         <React.Fragment>
           <div className="tools">
-            <button onClick={() => zoomIn()}>Zoom in</button>
-            <button onClick={() => zoomOut()}>Zoom out</button>
+            <button onClick={() => zoomIn()}>+</button>
+            <button onClick={() => zoomOut()}>-</button>
             <button onClick={() => resetTransform()}>Reset</button>
           </div>
 
           <TransformComponent>
-            {/* <Pins pins={pins}> */}
             <div
               style={{
                 position: "relative",
@@ -39,8 +38,6 @@ export const Remage = ({
                 );
               })}
             </div>
-            <></>
-            {/* </Pins> */}
           </TransformComponent>
         </React.Fragment>
       )}
