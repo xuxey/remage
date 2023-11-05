@@ -1,27 +1,58 @@
-# React + TypeScript + Vite
+# Remage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular toolkit to make static images interactive in react. 
 
-Currently, two official plugins are available:
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/xuxey/remage)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It supports:
 
-## Expanding the ESLint configuration
+- Cross platform support for zooming and panning (thanks to [react-zoom-pan-pinch](https://www.npmjs.com/package/react-zoom-pan-pinch)) 
+- Fully customizable _interactables_ that scale and move with the base image
+- Reusable interactable components, with more advanced interactables coming soon!
+- Freedom to Mix & Match any combination of interactables
+- Built-in keyword based search 
+- Typescript support
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Quickstart
 
-- Configure the top-level `parserOptions` property like this:
+> Remage is going to be launched as an npm package soon!
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Import the remage components, and use the following props to configure it:
+
+1. `src`: This is a path to the base image
+2. `title`: Optional, Displayed above the remage and in the search bar
+3. `interactables`: An Array of interactable objects with the following type:
+
+```ts
+type Interactable = {
+  top: number,
+  left: number,
+  interactable: (state: {scale: number, positionX: number, positionY: number}) => React.ReactNode
+}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Sample Usage
+
+More examples can be found on the [remage webpage](https://remage.pages.dev/)
+
+```
+<Remage
+   src="base-img.png"
+   title="Seven Wonders"
+   interactables={[
+      {
+         top: "20%",
+         left: "31.4%",
+         interactable: () => {
+            return <div>x</div>
+         }
+      }
+   ]}
+/>
+```
+
+# Authors
+
+[Soham Kulkarni](https://github.com/xuxey)
+
+[Suyash Nagumalli](https://github.com/faddock)
