@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="font-sans">
         <span className="flex flex-row justify-between items-center mb-5">
-          <h1 className="text-5xl">Remage</h1>
+          <h1 className="text-6xl font-head">Remage</h1>
           <span className="flex flex-row gap-5">
             <a
               className="text-blue-400 hover:text-blue-500 duration-300 flex flex-row gap-2"
@@ -41,13 +41,17 @@ function App() {
           </div>
 
           <div className="flex flex-col mt-4">
-          <h1 className="text-3xl font-bold tracking-wider hero-text">Minimal Code. Maximum Results.</h1>
-          <img src="sample.png" className="md:w-2/3 mx-auto" />
+            <h1 className="text-3xl font-bold tracking-wider hero-text">
+              Minimal Code. Maximum Results.
+            </h1>
+            <img src="sample.png" className="md:w-2/3 mx-auto" />
           </div>
 
           <div className="flex mx-auto flex-col md:flex-row-reverse gap-5">
             <div className="flex justify-center text-left flex-col md:w-[60%] mx-auto">
-              <h1 className="text-2xl mb-2 hero-text">Remage the Illinois Campus.</h1>
+              <h1 className="text-2xl mb-2 hero-text">
+                Remage the Illinois Campus.
+              </h1>
               <p className="text-center md:text-left">
                 <p>Quiz yourself on our campus buildings.</p>
                 <p> zoom, pinch, pan to interact.</p>
@@ -82,9 +86,7 @@ function App() {
           </div>
         </div>
 
-        <div className="mt-20">
-          Copyright 2023
-        </div>
+        <div className="mt-20">Copyright 2023</div>
       </div>
     </>
   );
