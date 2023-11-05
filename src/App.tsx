@@ -21,40 +21,69 @@ function App() {
           </span>
         </span>
 
-        <h2 className="text-5xl p-5 my-10 font-bold tracking-widest hero-text">
+        <h2 className="text-5xl p-5 my-12 font-bold tracking-widest hero-text">
           Your Images. Brought to Life.
         </h2>
 
         <div className="flex flex-col gap-10">
-          <div className="flex mx-auto flex-row gap-5">
-            <div className="flex justify-center flex-col w-[40%]">
-              <h1 className="text-2xl mb-2 text-left">hello world</h1>
-              <p className="text-left">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Commodi quam repellendus distinctio sint, earum, in id, amet
-                dolorem voluptates ipsam debitis quisquam ad quas? Quaerat modi
-                nostrum deleniti iste assumenda.
+          <div className="flex mx-auto flex-col md:flex-row gap-5">
+            <div className="flex justify-center flex-col md:w-[40%] mx-auto">
+              <h1 className="text-2xl mb-2 text-left hero-text">
+                Remage the Seven Wonders.
+              </h1>
+              <p className="text-center md:text-left">
+                <p>hover over the pins to learn more.</p>
+                <p>zoom, pinch, pan to interact.</p>
+                <p>search via search bar.</p>
               </p>
             </div>
             <SevenWonders />
           </div>
 
-          <img src="sample.png" className="w-2/3 mx-auto" />
+          <div className="flex flex-col mt-4">
+          <h1 className="text-3xl font-bold tracking-wider hero-text">Minimal Code. Maximum Results.</h1>
+          <img src="sample.png" className="md:w-2/3 mx-auto" />
+          </div>
 
-          <div className="flex mx-auto flex-row-reverse gap-5">
-            <div className="flex justify-center text-left flex-col w-[40%]">
-              <h1 className="text-2xl mb-2">hello world</h1>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam
-                rem dolor minima, accusantium inventore quisquam amet suscipit
-                quidem quos atque hic aut nostrum vel tenetur earum quo iure
-                reiciendis magnam?
+          <div className="flex mx-auto flex-col md:flex-row-reverse gap-5">
+            <div className="flex justify-center text-left flex-col md:w-[60%] mx-auto">
+              <h1 className="text-2xl mb-2 hero-text">Remage the Illinois Campus.</h1>
+              <p className="text-center md:text-left">
+                <p>Quiz yourself on our campus buildings.</p>
+                <p> zoom, pinch, pan to interact.</p>
+                <p>Search via search bar.</p>
               </p>
             </div>
             <EOHMap />
           </div>
 
-          <div></div>
+          <div className="text-m text-left mx-auto">
+            <p className="text-center text-2xl mb-2 font-semibold hero-text">
+              Remage supports
+            </p>
+
+            <ul className="list-disc px-3">
+              <li>
+                Cross platform support for zooming and panning (thanks to
+                react-zoom-pan-pinch)
+              </li>
+              <li>
+                Fully customizable interactables that scale and move with the
+                base image
+              </li>
+              <li>
+                Reusable interactable components, with more advanced
+                interactables coming soon!
+              </li>
+              <li>Freedom to Mix & Match any combination of interactables</li>
+              <li>Built-in keyword based search</li>
+              <li>Typescript support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-20">
+          Copyright 2023
         </div>
       </div>
     </>

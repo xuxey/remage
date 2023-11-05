@@ -37,7 +37,6 @@ export const Remage = ({
       >
         {({ zoomIn, zoomOut, resetTransform }) => (
           <React.Fragment>
-            <h1 className="text-xl mb-2">{title}</h1>
             <TransformComponent>
               <img src={src} alt="" style={{ position: "relative" }} />
               {interactables
@@ -65,7 +64,7 @@ export const Remage = ({
             <div className="flex flex-row justify-between z-30 items-center mt-2">
               <div>
                 <input
-                  className="p-1 rounded-md px-2"
+                  className="p-1 rounded-md px-2 bg-transparent border border-gray-600"
                   placeholder={`Search ${title}...`}
                   type="text"
                   onChange={(e) => setSearch(e.target.value)}

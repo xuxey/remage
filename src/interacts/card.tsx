@@ -49,7 +49,7 @@ export const CardInteract = ({
                 </span>
               </div>
             }
-            <Icon icon="ion:pin" className="text-lg hover:text-red-400" />
+            <Icon icon="mdi:pin" className="text-lg hover:text-red-400" />
           </div>
         </>
       );

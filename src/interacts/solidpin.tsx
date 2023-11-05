@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const SolidPinInteract = ({
   top,
@@ -13,13 +13,7 @@ export const SolidPinInteract = ({
   popupText: string;
   tags: string;
 }): Interactable => {
-  const [isPopupVisible, setPopupVisible] = useState(false);
-
-  useEffect(() => {
-    setPopupVisible(isPopupVisible);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPopupVisible]);
+  const [isHovering, setHovering] = useState(false);
 
   return {
     top,
@@ -28,16 +22,24 @@ export const SolidPinInteract = ({
     interactable: ({ scale }) => {
       return (
         <>
-          {(scale > 2 || isPopupVisible) && (
-            <div className="absolute -left-16 bottom-5 w-40 text-white text-xs bg-cover rounded-md bg-black/60">
-              {popupText}
+          <div
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            // className={`scale-[${1 / scale}]`}
+            style={{ transform: `scale(${1 / scale})` }}>
+
+
+            {(
+              <div className={`${
+                isHovering ? "visible" : "invisible"} absolute -left-16 bottom-5 w-40 text-white text-m bg-cover rounded-md bg-black/60`}>
+                {popupText}
+              </div>
+            )}
+            <div className="pin" style={{ top: "50%" }}>
+              <Icon
+                icon="teenyicons:pin-solid"
+              />
             </div>
-          )}
-          <div className="pin" style={{ top: "50%" }}>
-            <Icon
-              icon="teenyicons:pin-solid"
-              onClick={() => setPopupVisible(!isPopupVisible)}
-            />
           </div>
         </>
       );
