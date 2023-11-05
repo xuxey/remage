@@ -63,7 +63,7 @@ export const Remage = ({
   interactables,
 }: {
   src: string;
-  interactables: Interactable[];
+  interactables: Interactables;
 }) => {
   const initialState = {
     scale: 1,
@@ -86,6 +86,53 @@ export const Remage = ({
       >
         {({ zoomIn, zoomOut, resetTransform }) => (
           <React.Fragment>
+            <div className="flex space-x-2 top-20 z-30">
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3"
+                onClick={() => zoomIn()}
+              >
+                {" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </button>
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 "
+                onClick={() => zoomOut()}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </button>
+              <button
+                className="bg-red-500 hover:bg-red-600 text-white rounded-full"
+                onClick={() => resetTransform()}
+              >
+                Reset
+              </button>
+            </div>
+
             <TransformComponent>
               <img src={src} alt="" style={{ position: "relative" }} />
               {interactables.map((int) => {
