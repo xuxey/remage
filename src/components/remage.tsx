@@ -10,7 +10,7 @@ export const Remage = ({
   interactables,
 }: {
   src: string;
-  interactables: Interactables;
+  interactables: Interactable[];
 }) => {
   const initialState = {
     scale: 1,
@@ -43,6 +43,7 @@ export const Remage = ({
             {interactables.map((int) => {
               return (
                 <div
+                  key={`${int.left}-${int.top}`}
                   style={{ left: int.left, top: int.top, position: "fixed" }}
                 >
                   {int.interactable(state)}

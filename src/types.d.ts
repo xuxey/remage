@@ -7,6 +7,7 @@ type State = {
 type Interactable = {
   top: string;
   left: string;
+  tags: string;
   interactable: (state: State) => React.ReactNode;
 };
 

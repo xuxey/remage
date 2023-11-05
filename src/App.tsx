@@ -1,47 +1,33 @@
+import { useState } from "react";
 import "./App.css";
 import { Remage } from "./components/remage";
-import { Icon } from "@iconify/react";
-
-import "./App.css";
+import { BasicInteract } from "./interacts/basic";
+import { PopUpInteract } from "./interacts/popup";
 
 function App() {
+  const [search, setSearch] = useState("");
+
   return (
     <>
       <div>
+        <input type="text" onChange={(e) => setSearch(e.target.value)} />
+
         <Remage
           src="base-img.png"
           interactables={[
-            {
+            PopUpInteract({
               top: "10%",
               left: "20%",
-              interactable: (zoom) => {
-                console.log("x", zoom);
-                return (
-                  <div className="pin" style={{ top: "50%" }}>
-                    <Icon icon="ion:pin" />
-                  </div>
-                );
-              },
-            },
-            {
-              top: "20%",
-              left: "50%",
-              interactable: (state) => {
-                return (
-                  <div style={{ top: "50%" }}>
-                    {state.scale == 1 ? "y" : "zoomed in"}
-                  </div>
-                );
-              },
-            },
-            {
-              top: "80%",
-              left: "50%",
-              interactable: () => {
-                return <div style={{ top: "50%" }}>z</div>;
-              },
-            },
-          ]}
+              popupText: "Random point on the map",
+              tags: "banana",
+            }),
+            BasicInteract({
+              left: "20%",
+              top: "40%",
+              popupText: "hover on me daddy",
+              tags: "apple",
+            }),
+          ].filter((intr) => intr.tags.includes(search))}
         />
       </div>
     </>
