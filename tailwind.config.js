@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{html,js,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Open Sans']
+      }
+    },
   },
   plugins: [],
 }

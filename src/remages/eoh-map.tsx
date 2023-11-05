@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { Remage } from "../components/remage";
 import { SolidPinInteract } from "../interacts/solidpin";
 
 export const EOHMap = () => {
-  const [search, setSearch] = useState("");
-
   return (
     <div>
-      <input type="text" onChange={(e) => setSearch(e.target.value)} />
-
       <Remage
         src="campus_map.png"
+        title="Campus Map"
         interactables={[
           SolidPinInteract({
             top: "15%",
@@ -48,9 +44,7 @@ export const EOHMap = () => {
             popupText: "Everitt Laboratory",
             tags: "Everitt Laboratory",
           }),
-        ].filter((intr) =>
-          intr.tags.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        )}
+        ]}
       />
     </div>
   );

@@ -1,16 +1,14 @@
-import { useState } from "react";
 import "../App.css";
 import { Remage } from "../components/remage";
 import { CardInteract } from "../interacts/card";
 
 export const SevenWonders = () => {
-  const [search, setSearch] = useState("");
-
   return (
     <>
       <div>
         <Remage
           src="base-img.png"
+          title="Seven Wonders"
           interactables={[
             CardInteract({
               left: "21.7%",
@@ -82,15 +80,7 @@ export const SevenWonders = () => {
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/250px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
               tags: "Great Wall of China, China",
             }),
-          ].filter((intr) =>
-            intr.tags.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-          )}
-        />
-        <input
-          className="p-1 rounded-md px-2"
-          placeholder="Search Seven Wonders..."
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
+          ]}
         />
       </div>
     </>
