@@ -42,9 +42,9 @@
 }
 
 .pin {
-  color: red;
+  color: darkblue;
 }
 
 .pin:hover {
-  color: blue;
+  color: red;
 }

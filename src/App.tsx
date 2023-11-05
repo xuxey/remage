@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Remage } from "./components/remage";
-import { BasicInteract } from "./interacts/basic";
-import { PopUpInteract } from "./interacts/popup";
+import { SolidPinInteract } from "./interacts/solidpin";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -13,19 +12,43 @@ function App() {
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
 
         <Remage
-          src="base-img.png"
+          src="campus_map.png"
           interactables={[
-            PopUpInteract({
-              top: "10%",
-              left: "20%",
-              popupText: "Random point on the map",
-              tags: "banana",
+            SolidPinInteract({
+              top: "15%",
+              left: "45%",
+              popupText: "National Center for Supercomputing Applications",
+              tags: "National Center for Supercomputing Applications",
             }),
-            BasicInteract({
-              left: "20%",
-              top: "40%",
-              popupText: "hover on me daddy",
-              tags: "apple",
+            SolidPinInteract({
+              top: "27%",
+              left: "30%",
+              popupText: "Hydrosystems Lab",
+              tags: "Hydrosystems Lab",
+            }),
+            SolidPinInteract({
+              top: "30%",
+              left: "55%",
+              popupText: "Siebel Center",
+              tags: "Siebel Center",
+            }),
+            SolidPinInteract({
+              top: "35%",
+              left: "40%",
+              popupText: "Newmark (Crane Bay)",
+              tags: "Newmark (Crane Bay)",
+            }),
+            SolidPinInteract({
+              top: "43%",
+              left: "45%",
+              popupText: "Digital Computer Laboratory",
+              tags: "Digital Computer Laboratory",
+            }),
+            SolidPinInteract({
+              top: "72%",
+              left: "47%",
+              popupText: "Everitt Laboratory",
+              tags: "Everitt Laboratory",
             }),
           ].filter((intr) => intr.tags.includes(search))}
         />
