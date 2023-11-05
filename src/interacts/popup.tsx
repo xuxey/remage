@@ -16,7 +16,7 @@ export const PopUpInteract = ({
     top,
     left,
     tags,
-    interactable: ({ scale, positionX, positionY }) => {
+    interactable: ({ scale }) => {
       return (
         <>
           {scale > 1.5 && (
